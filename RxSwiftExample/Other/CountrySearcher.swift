@@ -7,15 +7,34 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol CountrySearchable {
-    func filterCountries(_ countries: [String], withQuery query: String) -> [String]
+    func filterCountries(_ countries: [String],
+                         withQuery query: String,
+                         onCompleted: @escaping ([String])->())
+    func rxFilterCountries(_ countries: [String],
+                         withQuery query: String) -> Single<[String]>
 }
 
 class CountrySearcher: CountrySearchable {
-    func filterCountries(_ countries: [String], withQuery query: String) -> [String] {
-        return countries.filter {
-            $0.lowercased().contains(query.lowercased())
+    func filterCountries(_ countries: [String],
+                         withQuery query: String,
+                         onCompleted: @escaping ([String])->()) {
+        DispatchQueue.global(qos: .background).async {
+            let countries = countries.filter {
+                $0.lowercased().contains(query.lowercased())
+            }
+            DispatchQueue.main.async {
+                onCompleted(countries)
+            }
         }
+    }
+    
+    func rxFilterCountries(_ countries: [String], withQuery query: String) -> Single<[String]> {
+        return Single.just(countries)
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .map { $0.filter { $0.lowercased().contains(query.lowercased())} }
+            .observeOn(MainScheduler.instance)
     }
 }

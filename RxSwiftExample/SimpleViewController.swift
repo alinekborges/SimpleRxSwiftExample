@@ -36,8 +36,10 @@ class SimpleViewController: UIViewController {
         
         guard let query = self.textField.text else { return }
         
-        self.filtered = self.searcher.filterCountries(self.countries, withQuery: query)
-        self.tableView.reloadData()
+        self.searcher.filterCountries(self.countries, withQuery: query) { countries in
+            self.filtered = countries
+            self.tableView.reloadData()
+        }
         
     }
     
