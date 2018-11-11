@@ -11,7 +11,7 @@ import RxSwift
 
 protocol CountryService {
     func getCountries(onCompleted: @escaping ([String])->())
-    func rxGetCountries() -> Single<[String]>
+    func rxGetCountries() -> Observable<[String]>
 }
 
 class FakeCountryService: CountryService {
@@ -22,8 +22,8 @@ class FakeCountryService: CountryService {
         }
     }
     
-    func rxGetCountries() -> Single<[String]> {
-        return Single.just(countries)
+    func rxGetCountries() -> Observable<[String]> {
+        return Observable.just(countries)
             .delaySubscription(0.3, scheduler: MainScheduler.instance)
     }
     
