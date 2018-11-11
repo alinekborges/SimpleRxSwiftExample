@@ -15,7 +15,7 @@ class CoolViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    let countries = ["Argentina", "Bolívia", "Brasil", "Chile", "Colômbia", "Equador", "Guiana", "Paraguai", "Peru", "Suriname", "Uruguai", "Venezuela"]
+    var countries: [String] = []
     var filtered: [String] = []
     
     let disposeBag = DisposeBag()
@@ -30,6 +30,7 @@ class CoolViewController: UIViewController {
         
         setupBindings()
     }
+    
 }
 
 extension CoolViewController {

@@ -13,30 +13,42 @@ class SimpleViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    let countries = ["Argentina", "Bolívia", "Brasil", "Chile", "Colômbia", "Equador", "Guiana", "Paraguai", "Peru", "Suriname", "Uruguai", "Venezuela"]
+    let service: CountryService = FakeCountryService()
+    let searcher: CountrySearchable = CountrySearcher()
+    
+    var countries: [String] = []
     var filtered: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.textField.becomeFirstResponder()
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
+        self.setupViews()
+        self.downloadCountries()
+    }
+    
+    func downloadCountries() {
+        self.service.getCountries { [weak self] countries in
+            self?.countries = countries
+        }
     }
 
     @IBAction func textFieldDidChange(_ sender: Any) {
         
-        self.filtered = countries.filter {
-            $0.lowercased().contains(textField.text!.lowercased())
-        }
+        guard let query = self.textField.text else { return }
+        
+        self.filtered = self.searcher.filterCountries(self.countries, withQuery: query)
         self.tableView.reloadData()
         
     }
+    
 }
 
 extension SimpleViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = self.filtered[indexPath.row]
+        self.textField.text = item
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -58,5 +70,12 @@ extension SimpleViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
-
+extension SimpleViewController {
+    
+    func setupViews() {
+        self.textField.becomeFirstResponder()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+}

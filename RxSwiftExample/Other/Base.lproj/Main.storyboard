@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Hr-kd-GGG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Hr-kd-GGG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,8 +33,11 @@
                                             <constraint firstAttribute="height" constant="42" id="x9K-aW-ClJ"/>
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="3Hr-kd-GGG" eventType="editingChanged" id="5IT-h9-U3W"/>
+                                        </connections>
                                     </textField>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VTj-hR-wZv">
                                         <rect key="frame" x="34" y="220" width="306" height="414"/>
@@ -94,7 +96,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gN5-Ai-JvW" firstAttribute="leading" secondItem="8NG-2n-YP4" secondAttribute="leading" id="EaE-es-f6A"/>
-                            <constraint firstItem="gN5-Ai-JvW" firstAttribute="top" secondItem="t7U-RL-7Ac" secondAttribute="top" id="WzD-Iv-kL1"/>
+                            <constraint firstItem="gN5-Ai-JvW" firstAttribute="top" secondItem="8NG-2n-YP4" secondAttribute="top" constant="-20" id="Ftf-kb-QTI"/>
                             <constraint firstItem="gN5-Ai-JvW" firstAttribute="bottom" secondItem="8NG-2n-YP4" secondAttribute="bottom" id="uFx-YY-boc"/>
                             <constraint firstItem="gN5-Ai-JvW" firstAttribute="trailing" secondItem="8NG-2n-YP4" secondAttribute="trailing" id="yhQ-7K-ima"/>
                         </constraints>

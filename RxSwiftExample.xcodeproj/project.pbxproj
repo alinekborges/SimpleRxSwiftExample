@@ -16,6 +16,8 @@
 		40F91D822023B227008A3C9F /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F91D812023B227008A3C9F /* CountryTableViewCell.swift */; };
 		40F91D842023B6A4008A3C9F /* CoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F91D832023B6A4008A3C9F /* CoolViewController.swift */; };
 		40F91D862023BA2B008A3C9F /* CoolestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F91D852023BA2B008A3C9F /* CoolestViewController.swift */; };
+		6BBC829921983AE200F2E3F7 /* CountryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBC829821983AE200F2E3F7 /* CountryService.swift */; };
+		6BBC829B21983E5100F2E3F7 /* CountrySearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBC829A21983E5100F2E3F7 /* CountrySearcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		40F91D812023B227008A3C9F /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		40F91D832023B6A4008A3C9F /* CoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolViewController.swift; sourceTree = "<group>"; };
 		40F91D852023BA2B008A3C9F /* CoolestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolestViewController.swift; sourceTree = "<group>"; };
+		6BBC829821983AE200F2E3F7 /* CountryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryService.swift; sourceTree = "<group>"; };
+		6BBC829A21983E5100F2E3F7 /* CountrySearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySearcher.swift; sourceTree = "<group>"; };
 		E2CA9244DDC6D07FA9627E7B /* Pods-RxSwiftExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftExample/Pods-RxSwiftExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,17 +88,27 @@
 		40C170EA2022561F00CA4803 /* RxSwiftExample */ = {
 			isa = PBXGroup;
 			children = (
-				40C170EB2022561F00CA4803 /* AppDelegate.swift */,
-				40C170EF2022561F00CA4803 /* Main.storyboard */,
-				40C170F22022561F00CA4803 /* Assets.xcassets */,
-				40C170F42022561F00CA4803 /* LaunchScreen.storyboard */,
+				6BBC829C21983E5700F2E3F7 /* Other */,
 				40C170F72022561F00CA4803 /* Info.plist */,
-				40F91D812023B227008A3C9F /* CountryTableViewCell.swift */,
 				40F91D7F2023B1DE008A3C9F /* SimpleViewController.swift */,
 				40F91D832023B6A4008A3C9F /* CoolViewController.swift */,
 				40F91D852023BA2B008A3C9F /* CoolestViewController.swift */,
 			);
 			path = RxSwiftExample;
+			sourceTree = "<group>";
+		};
+		6BBC829C21983E5700F2E3F7 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				40C170EB2022561F00CA4803 /* AppDelegate.swift */,
+				40C170EF2022561F00CA4803 /* Main.storyboard */,
+				40C170F22022561F00CA4803 /* Assets.xcassets */,
+				40F91D812023B227008A3C9F /* CountryTableViewCell.swift */,
+				6BBC829821983AE200F2E3F7 /* CountryService.swift */,
+				6BBC829A21983E5100F2E3F7 /* CountrySearcher.swift */,
+				40C170F42022561F00CA4803 /* LaunchScreen.storyboard */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,7 +123,6 @@
 				40C170E52022561F00CA4803 /* Frameworks */,
 				40C170E62022561F00CA4803 /* Resources */,
 				24869FC764153280CF3AB250 /* [CP] Embed Pods Frameworks */,
-				1CAF99716F03B1C97BEFA50E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,21 +181,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1CAF99716F03B1C97BEFA50E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftExample/Pods-RxSwiftExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		24869FC764153280CF3AB250 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,7 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BBC829921983AE200F2E3F7 /* CountryService.swift in Sources */,
 				40F91D822023B227008A3C9F /* CountryTableViewCell.swift in Sources */,
+				6BBC829B21983E5100F2E3F7 /* CountrySearcher.swift in Sources */,
 				40F91D842023B6A4008A3C9F /* CoolViewController.swift in Sources */,
 				40C170EC2022561F00CA4803 /* AppDelegate.swift in Sources */,
 				40F91D862023BA2B008A3C9F /* CoolestViewController.swift in Sources */,

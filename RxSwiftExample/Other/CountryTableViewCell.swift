@@ -16,4 +16,12 @@ class CountryTableViewCell: UITableViewCell {
         titleLabel.text = text
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        if selected {
+            self.backgroundColor = #colorLiteral(red: 0.9391135219, green: 0.9391135219, blue: 0.9391135219, alpha: 1)
+        } else {
+            self.backgroundColor = .white
+        }
+    }
+    
 }
